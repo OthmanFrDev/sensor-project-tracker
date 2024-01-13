@@ -1,0 +1,14 @@
+application:
+  security:
+    jwt:
+      secret-key: 1b40bc22037576ec053694e6132064d31b6224917fafd51d0932f4fad3388f43
+      expiration: 3600000
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/project-tracker-db
+    username: postgres
+    password:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
