@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/project-tracker-db
     username: postgres
-    password:
+    password: postgres
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

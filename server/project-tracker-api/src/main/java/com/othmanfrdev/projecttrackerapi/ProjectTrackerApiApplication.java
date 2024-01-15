@@ -6,6 +6,7 @@ import com.othmanfrdev.projecttrackerapi.entity.User;
 import com.othmanfrdev.projecttrackerapi.repository.BudgetRepository;
 import com.othmanfrdev.projecttrackerapi.repository.CategoryRepository;
 import com.othmanfrdev.projecttrackerapi.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +22,7 @@ public class ProjectTrackerApiApplication implements CommandLineRunner {
     private final CategoryRepository categoryRepository;
     private final BudgetRepository budgetRepository;
     private final PasswordEncoder passwordEncoder;
+
 
     public ProjectTrackerApiApplication(UserRepository userRepository, CategoryRepository categoryRepository, BudgetRepository budgetRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -56,7 +58,7 @@ public class ProjectTrackerApiApplication implements CommandLineRunner {
         this.userRepository.save(User
                 .builder()
                 .email("email@email.com")
-                .name("test")
+                .name("name")
                 .password(passwordEncoder.encode("emsi123"))
                 .build());
     }

@@ -1,0 +1,32 @@
+services:
+  project-tracker-ui:
+    container_name: project-tracker-ui
+    build: ./client/project-tracker-ui/
+    ports:
+      - 5173:5173
+    depends_on:
+      - project-tracker-api
+
+  project-tracker-api:
+    container_name: project-tracker-api
+    build: ./server/project-tracker-api/
+    environment:
+      SPRING.DATASOURCE.URL: jdbc:postgresql://postgres:5432/project-tracker-db
+      SPRING.DATASOURCE.USERNAME: postgres
+      SPRING.DATASOURCE.PASSWORD: postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: app_postgres
+    image: postgres:13-alpine
+    restart: always
+    command: [ "postgres", "-c", "log_statement=all", "-c", "log_destination=stderr" ]
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: project-tracker-db
+    ports:
+      - 5433:5432

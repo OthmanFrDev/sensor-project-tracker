@@ -16,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
 class BudgetServiceImplTest {
     @Autowired
     private BudgetService budgetService;
